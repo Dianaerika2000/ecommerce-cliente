@@ -1,7 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import authAction from '../../redux/auth/actions';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
+const schema = yup
+  .object({
+    email: yup.string().email().required(),
+    password: yup.string().required(),
+  })
+  .required();
 
 /**
  * Login Page
@@ -9,13 +19,20 @@ import { useNavigate } from 'react-router-dom';
  * @constructor
  */
 export default function LoginPage() {
+  // form
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
   const { login } = authAction;
   let navigate = useNavigate();
   // redux
   const isLoggedIn = useSelector((state) => state.Auth.idToken);
   const dispatch = useDispatch();
-  // states
-  const [userInfo, setUserInfo] = useState({ email: '', password: '' });
   // effects
   useEffect(() => {
     if (isLoggedIn) {
@@ -23,11 +40,10 @@ export default function LoginPage() {
     }
   }, [isLoggedIn, navigate]);
   // handlers
-  const handleLogin = (e) => {
-    e.preventDefault();
+  const handleLogin = (data) => {
     const user = {
-      email: userInfo.email,
-      password: userInfo.password,
+      email: data.email,
+      password: data.password,
     };
     if (user) {
       dispatch(login(user));
@@ -41,15 +57,17 @@ export default function LoginPage() {
         <div className="col-4 my-3">
           <div className="Login">
             <h2>Login</h2>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleSubmit(handleLogin)}>
               <div className="mb-3">
                 <label className="form-label">Email address</label>
                 <input
                   type="email"
                   className="form-control"
-                  value={userInfo.email}
-                  onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })}
+                  {...register('email', { required: true })}
                 />
+                {errors.email && (
+                  <span className="badge text-bg-danger">This field is required</span>
+                )}
                 <div className="form-text">We'll never share your email with anyone else.</div>
               </div>
               <div className="mb-3">
@@ -57,9 +75,11 @@ export default function LoginPage() {
                 <input
                   type="password"
                   className="form-control"
-                  value={userInfo.password}
-                  onChange={(e) => setUserInfo({ ...userInfo, password: e.target.value })}
+                  {...register('password', { required: true })}
                 />
+                {errors.password && (
+                  <span className="badge text-bg-danger">This field is required</span>
+                )}
               </div>
               <button type="submit" className="btn btn-primary">
                 Submit
