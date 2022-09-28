@@ -8,8 +8,8 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import ProductsPage from './pages/ProductsPage/ProductsPage';
 import MyProfilePage from './pages/Admin/MyProfilePage/MyProfilePage';
 import ListExamplePage from './pages/Admin/ListExamplePage/ListExamplePage';
-import ProductsECPage from './pages/ProductsECPage/ProductsECPage';
-import AddEditProductECPage from './pages/ProductsECPage/AddEditProductECPage';
+import ProductsECPage from './pages/Admin/ProductsECPage/ProductsECPage';
+import AddEditProductECPage from './pages/Admin/ProductsECPage/AddEditProductECPage';
 
 // eslint-disable-next-line no-unused-vars
 import axiosInterceptor from './utility/axios-token-interceptor';

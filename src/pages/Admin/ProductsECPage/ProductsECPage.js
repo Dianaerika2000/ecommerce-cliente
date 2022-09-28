@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { api } from '../../config/site.config';
+import { api } from '../../../config/site.config';
 import { Link } from 'react-router-dom';
-import ModalButton from '../../components/Modal/ModalButton';
-import Modal from '../../components/Modal/Modal';
+import ModalButton from '../../../components/Modal/ModalButton';
+import Modal from '../../../components/Modal/Modal';
 
 let productModal = null;
 
