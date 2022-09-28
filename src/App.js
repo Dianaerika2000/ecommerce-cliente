@@ -8,6 +8,8 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import ProductsPage from './pages/ProductsPage/ProductsPage';
 import MyProfilePage from './pages/Admin/MyProfilePage/MyProfilePage';
 import ListExamplePage from './pages/Admin/ListExamplePage/ListExamplePage';
+import ProductsECPage from './pages/ProductsECPage/ProductsECPage';
+import AddEditProductECPage from './pages/ProductsECPage/AddEditProductECPage';
 
 // eslint-disable-next-line no-unused-vars
 import axiosInterceptor from './utility/axios-token-interceptor';
@@ -23,10 +25,10 @@ const App = () => {
     main: [
       { option: 'Home', to: '/' },
 
-      { option: 'Products', to: '/products' },
     ],
     right: [
       { option: 'My Profile', to: '/my-profile', displayIfLoggedIn: true },
+      { option: 'Products', to: '/products-ec', displayIfLoggedIn: true },
       { option: 'Login', to: '/login', displayIfLoggedIn: false },
       { option: 'Logout', to: '/logout', displayIfLoggedIn: true },
     ],
@@ -57,6 +59,32 @@ const App = () => {
               }
             />
           </Route>
+          <Route
+            path="products-ec"
+            element={
+              <PrivateRoute>
+                <ProductsECPage />
+              </PrivateRoute>
+            }
+          />
+          <Route path="product-ec/edit">
+            <Route
+              path=":productId"
+              element={
+                <PrivateRoute>
+                  <AddEditProductECPage />
+                </PrivateRoute>
+              }
+            />
+          </Route>
+          <Route
+            path="product-ec/add"
+            element={
+              <PrivateRoute>
+                <AddEditProductECPage />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </div>
     </BrowserRouter>
