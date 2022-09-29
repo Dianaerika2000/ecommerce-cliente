@@ -9,15 +9,19 @@ let productModal = null;
 export default function ProductsECPage() {
   // states
   const [products, setProducts] = useState([]);
+  const [productDelete, setProductDelete] = useState(0);
   // init
-  useEffect(() => {
-    //loading products
+  const loadProducts = () => {
     api
       .get('products')
       .then((response) => {
         setProducts(response.data.products);
       })
       .catch((error) => console.log(error));
+  };
+  useEffect(() => {
+    //loading products
+    loadProducts();
     //loading modal
     if (!productModal) {
       productModal = new window.bootstrap.Modal('#productEcModal');
@@ -27,9 +31,13 @@ export default function ProductsECPage() {
     };
   }, []);
   // handlers
-  const eliminarProductoModal = (id) => {
-    console.log(id)
-  }
+  const eliminarProductoModal = () => {
+    api.delete('products/' + productDelete).then((response) => {
+      console.log(response);
+      productModal.hide();
+      loadProducts();
+    });
+  };
 
   // modal footer
   const modalFooter = (
@@ -37,8 +45,8 @@ export default function ProductsECPage() {
       <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
         Cerrar
       </button>
-      <button type="button" className="btn btn-primary" onClick={()=>{}}>
-        Guardar
+      <button type="button" className="btn btn-primary" onClick={eliminarProductoModal}>
+        Eliminar Producto
       </button>
     </>
   );
@@ -80,7 +88,7 @@ export default function ProductsECPage() {
                       <ModalButton
                         targetId="productEcModal"
                         className="btn btn-outline-secondary"
-                        onClick={() => eliminarProductoModal(product.id)}
+                        onClick={() => setProductDelete(product.id)}
                       >
                         Eliminar
                       </ModalButton>
