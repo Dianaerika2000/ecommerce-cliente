@@ -1,7 +1,9 @@
 .App{
   display:block;
 }
-
+h1, h2, h3 {
+  font-family: 'Oswald', sans-serif;
+}
 .bg-navBar{
   background-color: #f9fbf2;
 }
@@ -28,4 +30,8 @@
 /* Declare heights because of positioning of img element */
 .carousel-item {
   height: 32rem;
+}
+// CardProduct
+.card-custom{
+  width: 250px;
 }
