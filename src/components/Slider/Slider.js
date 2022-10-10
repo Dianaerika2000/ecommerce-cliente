@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom";
+import slide1 from '../../assets/images/slide1.png';
+import slide2 from '../../assets/images/slide2.png';
+import slide3 from '../../assets/images/slide3.png';
 
 export default function Slider() {
   return (
-    <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
+      {/* indicadores */}
       <div className="carousel-indicators">
         <button
           type="button"
-          data-bs-target="#myCarousel"
+          data-bs-target="#carouselExampleCaptions"
           data-bs-slide-to="0"
           className="active"
           aria-current="true"
@@ -14,98 +17,47 @@ export default function Slider() {
         ></button>
         <button
           type="button"
-          data-bs-target="#myCarousel"
+          data-bs-target="#carouselExampleCaptions"
           data-bs-slide-to="1"
           aria-label="Slide 2"
         ></button>
         <button
           type="button"
-          data-bs-target="#myCarousel"
+          data-bs-target="#carouselExampleCaptions"
           data-bs-slide-to="2"
           aria-label="Slide 3"
         ></button>
       </div>
+      {/* Diapositivas */}
       <div className="carousel-inner">
-        <div className="carousel-item active">
-          <svg
-            className="bd-placeholder-img"
-            width="100%"
-            height="100%"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false"
-          >
-            <rect width="100%" height="100%" fill="#777" />
-          </svg>
-
-          <div className="container">
-            <div className="carousel-caption text-start">
-              <h1>Example headline.</h1>
-              <p>Some representative placeholder content for the first slide of the carousel.</p>
-              <p>
-                <Link className="btn btn-lg btn-primary" to="">
-                  Sign up today
-                </Link>
-              </p>
-            </div>
+        <div className="carousel-item active" data-bs-interval="3000">
+          <img src={slide1} className="d-block w-100 img-fluid" alt="slide 1" />
+          <div className="carousel-caption d-none d-md-block text-end">
+            <h5>Majadito Batido</h5>
+            <p>Disfruta de un delicioso majadito.</p>
           </div>
         </div>
-        <div className="carousel-item">
-          <svg
-            className="bd-placeholder-img"
-            width="100%"
-            height="100%"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false"
-          >
-            <rect width="100%" height="100%" fill="#777" />
-          </svg>
-
-          <div className="container">
-            <div className="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Some representative placeholder content for the second slide of the carousel.</p>
-              <p>
-                <Link className="btn btn-lg btn-primary" to="">
-                  Learn more
-                </Link>
-              </p>
-            </div>
+        <div className="carousel-item" data-bs-interval="3000">
+          <img src={slide2} className="d-block w-100 img-fluid" alt="slide 2" />
+          <div className="carousel-caption d-none d-md-block text-end">
+            <h5>Picante Mixto</h5>
+            <p>Disfruta de un delicioso pincante mixto.</p>
           </div>
         </div>
-        <div className="carousel-item">
-          <svg
-            className="bd-placeholder-img"
-            width="100%"
-            height="100%"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false"
-          >
-            <rect width="100%" height="100%" fill="#777" />
-          </svg>
-
-          <div className="container">
-            <div className="carousel-caption text-end">
-              <h1>One more for good measure.</h1>
-              <p>Some representative placeholder content for the third slide of this carousel.</p>
-              <p>
-                <Link className="btn btn-lg btn-primary" to="">
-                  Browse gallery
-                </Link>
-              </p>
-            </div>
+        <div className="carousel-item" data-bs-interval="3000">
+          <img src={slide3} className="d-block w-100 img-fluid" alt="slide 3" />
+          <div className="carousel-caption d-none d-md-block text-end">
+            <h5>Rapi</h5>
+            <p>Disfruta de un delicioso rapi al jugo.</p>
           </div>
         </div>
       </div>
+
+      {/* Controles */}
       <button
         className="carousel-control-prev"
         type="button"
-        data-bs-target="#myCarousel"
+        data-bs-target="#carouselExampleCaptions"
         data-bs-slide="prev"
       >
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -114,11 +66,11 @@ export default function Slider() {
       <button
         className="carousel-control-next"
         type="button"
-        data-bs-target="#myCarousel"
+        data-bs-target="#carouselExampleCaptions"
         data-bs-slide="next"
       >
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Next</span>
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
       </button>
     </div>
   );

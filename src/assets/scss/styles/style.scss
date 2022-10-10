@@ -1,15 +1,15 @@
 .App{
   display:block;
 }
-h1, h2, h3 {
-  font-family: 'Oswald', sans-serif;
+h1, h2, h3, h5{
+  font-family: 'Marvel', sans-serif;
 }
 .bg-navBar{
   background-color: #f9fbf2;
 }
 .nav-link{
   color: #008037;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Marvel', sans-serif;
 }
 .nav-link:hover{
   color: #c55f2c;
@@ -31,7 +31,18 @@ h1, h2, h3 {
 .carousel-item {
   height: 32rem;
 }
+
+
 // CardProduct
+.bg-car-body{
+  background-color: #f9fbf2;
+}
 .card-custom{
   width: 250px;
+}
+.justificado{
+  text-align: justify;
+}
+.texto-card{
+  font-family: 'Marvel', sans-serif;
 }

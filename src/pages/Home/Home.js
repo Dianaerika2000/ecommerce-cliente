@@ -25,7 +25,7 @@ export default function Home() {
   //render
   return (
     <>
-      <Slider />
+      <Slider/>
       <div className="container">
         <div className="row my-4">
           <div className="col">

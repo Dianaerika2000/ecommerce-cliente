@@ -25,7 +25,7 @@ export default function FoodPage() {
         <div className="col-4">
           <h1>{plato.product_name}</h1>
           <p>
-            <span className="fw-semibold">Descripcion:</span> {plato.product_description}
+            <span className="fw-semibold justificado">Descripcion:</span> {plato.product_description}
           </p>
           <p>
             <span className="fw-semibold">Precio:</span> {plato.product_price} Bs.
