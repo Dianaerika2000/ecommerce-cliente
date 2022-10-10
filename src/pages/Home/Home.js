@@ -43,6 +43,7 @@ export default function Home() {
                   price={food.product_price}
                   linkBuy="/"
                   linkCar="/"
+                  linkVer={'/food/' + food.id}
                 />
               </div>
             );

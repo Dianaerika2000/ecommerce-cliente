@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function CardProducto({ title, description, price, image, linkBuy, linkCar }) {
+export default function CardProducto({ title, description, price, image, linkBuy, linkCar, linkVer }) {
   return (
     <div className="card">
       <div className="card-header">
@@ -9,10 +9,15 @@ export default function CardProducto({ title, description, price, image, linkBuy
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">
-          <small>{description}</small>
+          {description}&nbsp;<Link className='text-end' to={linkVer}><small>ver mas</small></Link>
         </p>
-        <p className="card-text fs-6 fw-semibold">{price} Bs.</p>
-        <div class="d-flex justify-content-around">
+        <p className="card-text fs-6 fw-semibold">
+          {price} Bs.
+        </p>
+        {/* <p className='text-end'>
+          <Link className='text-end' to=""><small>ver mas</small></Link>
+        </p> */}
+        <div className="d-flex justify-content-around">
           <Link to={linkBuy} className="btn btn-success">
             <i className="bi bi-whatsapp" /> Comprar
           </Link>
