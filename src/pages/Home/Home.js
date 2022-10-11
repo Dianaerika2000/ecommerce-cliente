@@ -25,11 +25,23 @@ export default function Home() {
   //render
   return (
     <>
-      <Slider/>
+      <Slider />
       <div className="container">
-        <div className="row my-4">
-          <div className="col">
+        <div className="row my-4 justify-content-center">
+          <div className="col-6">
             <h2 className="text-center">Nuestro Menu</h2>
+            <div className="input-group mb-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Búsqueda"
+                aria-label="Recipient's username"
+                aria-describedby="button-addon2"
+              />
+              <button className="btn btn-outline-success" type="button" id="button-addon2">
+                <i className="bi bi-search"></i>
+              </button>
+            </div>
           </div>
         </div>
         <div className="row">

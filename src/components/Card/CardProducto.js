@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 
 export default function CardProducto({
   title,
-  description,
   price,
   image,
   linkBuy,

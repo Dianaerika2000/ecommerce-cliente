@@ -8,6 +8,7 @@ import FoodPage from './pages/FoodPage/FoodPage';
 import axiosInterceptor from './utility/axios-token-interceptor';
 import NavBarMenu from './components/NavBar/NavBarMenu';
 import AboutUsPage from './pages/AboutUsPage/AboutUsPage';
+import MenuPage from './pages/MenuPage/MenuPage';
 
 /**
  * Main App component
@@ -18,6 +19,7 @@ const App = () => {
   // options
   let arNavBarOption = [
     { option: 'Home', to: '/' },
+    { option: 'Menu', to: '/menu' },
     { option: 'Acerca de nosotros', to: '/aboutus' },
   ];
 
@@ -31,6 +33,7 @@ const App = () => {
           <Route path="food">
             <Route path=":foodId" element={<FoodPage />} />
           </Route>
+          <Route path="menu" element={<MenuPage/>}/>
         </Routes>
       </div>
     </BrowserRouter>
