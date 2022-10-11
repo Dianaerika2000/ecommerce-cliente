@@ -21,11 +21,7 @@ export default function NavTab() {
       const category = food.categories[0];
       return category.category_name === categoria;
     });
-    console.log("resultado obtenido: ",result);
-    // setFoods(result);
-    // console.log("Food", foods);
     setFoodFilter(result);
-    console.log("Food Filter",foodsfilter);
   };
 
   // render
@@ -37,20 +33,36 @@ export default function NavTab() {
             <li className="nav-item" role="presentation">
               <button
                 className="nav-link active"
-                id="home-tab"
+                id="foods-tab"
                 data-bs-toggle="tab"
-                data-bs-target="#home-tab-pane"
+                data-bs-target="#foods-tab-pane"
                 type="button"
                 role="tab"
-                aria-controls="home-tab-pane"
+                aria-controls="foods-tab-pane"
                 aria-selected="true"
+              ><span class="material-symbols-outlined">
+              restaurant_menu
+              </span>&nbsp;
+                Menu
+              </button>
+            </li>
+            <li className="nav-item" role="presentation">
+              <button
+                className="nav-link"
+                id="plate-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#plate-tab-pane"
+                type="button"
+                role="tab"
+                aria-controls="plate-tab-pane"
+                aria-selected="false"
                 onClick={() => {
                   onClick('Platos típicos');
                 }}
               ><span class="material-symbols-outlined">
               restaurant
               </span>&nbsp;
-                Platos tipicos
+               Platos típicos
               </button>
             </li>
             <li className="nav-item" role="presentation">
@@ -95,9 +107,30 @@ export default function NavTab() {
           <div className="tab-content" id="myTabContent">
             <div
               className="tab-pane fade show active"
-              id="home-tab-pane"
+              id="foods-tab-pane"
               role="tabpanel"
-              aria-labelledby="home-tab"
+              aria-labelledby="foods-tab"
+              tabindex={'0'}
+            >
+              {foods.map((food, index) => {
+                return (
+                  <CardHorizontal
+                    title={food.product_name}
+                    description={food.product_description}
+                    price={food.product_price}
+                    image={food.product_image}
+                    linkBuy={''}
+                    linkCar={''}
+                    key={index}
+                  />
+                );
+              })}
+            </div>
+            <div
+              className="tab-pane fade"
+              id="plate-tab-pane"
+              role="tabpanel"
+              aria-labelledby="plate-tab"
               tabindex={'0'}
             >
               {foodsfilter.map((food, index) => {
