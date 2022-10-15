@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-// import logo from '../../assets/images/logo-remasterizado.png';
 export default function NavBarMenu({ opciones, cart }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-navBar sticky-top">

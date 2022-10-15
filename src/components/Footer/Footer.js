@@ -85,7 +85,6 @@ export default function Footer({ handlerClickEnviarMensaje }) {
           </p>
         </div>
         <div className="col-2">
-          {/* <img src={logo} alt="logo del restaurante" className="img-fluid" /> */}
           <h5>Horarios de atencion</h5>
           <p>
             Lunes - Domingos <br />

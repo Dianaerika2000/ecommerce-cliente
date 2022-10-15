@@ -11,13 +11,7 @@ export default function Cart({ cart, setCart, handleAdd, handleSubtract }) {
     setCart(arr);
     storageSave('cart_list', arr);
   };
-
-  // const handlePrice = () => {
-  //   let ans = 0;
-  //   cart.map((item) => (ans += item.monto * item.price));
-  //   setPrice(ans);
-  // };
-
+  
   const handleTotal = () => {
     let total = 0;
     cart.map((item) => (total += item.quantity * parseInt(item.product_price)));
