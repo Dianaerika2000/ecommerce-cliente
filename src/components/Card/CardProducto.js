@@ -1,37 +1,27 @@
 import { Link } from 'react-router-dom';
 
-export default function CardProducto({
-  title,
-  price,
-  image,
-  linkBuy,
-  linkCar,
-  linkVer,
-}) {
+export default function CardProducto({ item, handleAddFood, linkBuy, linkVer }) {
+  const { product_name, product_price, product_image } = item;
   return (
-    <div className="card">
+    <div className="card shadow border-white">
       <div className="card-header">
-        <img src={image} className="card-custom mx-auto d-block" alt={title} />
+        <img src={product_image} className="card-custom mx-auto d-block" alt={product_name} />
       </div>
-      <div className="card-body text-center bg-car-body">
+      <div className="card-body text-center text-dark rounded-bottom">
         <h5 className="card-title">
-          <Link className="text-decoration-none text-dark fs-5 text fw-semibold" to={linkVer}>
-            {title}
-          </Link>
+          {product_name}
         </h5>
-        {/* <p className="card-text">
-          {description}&nbsp;<Link className='text-end' to={linkVer}><small>ver mas</small></Link>
-        </p> */}
-        <p className="card-text fs-5  texto-card">Precio: {price} Bs.</p>
-        {/* <p className='text-end'>
-          <Link className='text-end' to=""><small>ver mas</small></Link>
-        </p> */}
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <Link to={linkBuy} className="btn btn-outline-success">
+        <p className="card-text fs-5  texto-card">Precio: {product_price} Bs.</p>
+        <div className="btn-group" role="group" aria-label="Basic example">
+          <Link to={linkBuy} className="btn btn-success">
             <i className="bi bi-whatsapp" /> Comprar
           </Link>
-          <Link to={linkCar} className="btn btn-outline-success">
+          <button className="btn btn-success"
+          onClick={() => handleAddFood(item)}>
             <i className="bi bi-basket2" /> Agregar
+          </button>
+          <Link className="btn btn-success" to={linkVer}>
+            <i className="bi bi-eye"/>
           </Link>
         </div>
       </div>

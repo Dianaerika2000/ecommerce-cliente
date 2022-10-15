@@ -5,7 +5,8 @@ h1, h2, h3, h5{
   font-family: 'Marvel', sans-serif;
 }
 .bg-navBar{
-  background-color: #f9fbf2;
+  // background-color: #f9fbf2;
+  background-color: #F8FAFC;
 }
 .nav-link{
   color: #008037;
@@ -35,7 +36,7 @@ h1, h2, h3, h5{
 
 // CardProduct
 .bg-car-body{
-  background-color: #f9fbf2;
+  background-color: #008037;
 }
 .card-custom{
   width: 250px;
@@ -45,4 +46,20 @@ h1, h2, h3, h5{
 }
 .texto-card{
   font-family: 'Marvel', sans-serif;
+}
+
+// iconos
+.custom-icon{
+  font-size: 30px;
+  color: black;
+}
+.custom{
+  font-size: 18px;
+}
+
+// footer
+.bg-footer{
+  // background-color: #27E364;
+  background-color: #a2dbb7;
+  
 }

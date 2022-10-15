@@ -40,7 +40,7 @@ export default function NavTab() {
                 role="tab"
                 aria-controls="foods-tab-pane"
                 aria-selected="true"
-              ><span class="material-symbols-outlined">
+              ><span className="material-symbols-outlined">
               restaurant_menu
               </span>&nbsp;
                 Menu
@@ -59,7 +59,7 @@ export default function NavTab() {
                 onClick={() => {
                   onClick('Platos típicos');
                 }}
-              ><span class="material-symbols-outlined">
+              ><span className="material-symbols-outlined">
               restaurant
               </span>&nbsp;
                Platos típicos
@@ -78,7 +78,7 @@ export default function NavTab() {
                 onClick={() => {
                   onClick('Postres');
                 }}
-              ><span class="material-symbols-outlined">
+              ><span className="material-symbols-outlined">
               icecream
               </span>&nbsp;
                 Postres
@@ -97,7 +97,7 @@ export default function NavTab() {
                 onClick={() => {
                   onClick('Refrescos');
                 }}
-              ><span class="material-symbols-outlined">
+              ><span className="material-symbols-outlined">
               liquor
               </span>&nbsp;
               Refrescos
@@ -110,7 +110,6 @@ export default function NavTab() {
               id="foods-tab-pane"
               role="tabpanel"
               aria-labelledby="foods-tab"
-              tabindex={'0'}
             >
               {foods.map((food, index) => {
                 return (
@@ -131,7 +130,6 @@ export default function NavTab() {
               id="plate-tab-pane"
               role="tabpanel"
               aria-labelledby="plate-tab"
-              tabindex={'0'}
             >
               {foodsfilter.map((food, index) => {
                 return (
@@ -152,7 +150,6 @@ export default function NavTab() {
               id="profile-tab-pane"
               role="tabpanel"
               aria-labelledby="profile-tab"
-              tabindex={'0'}
             >
               {foodsfilter.map((food, index) => {
                 return (
@@ -173,7 +170,6 @@ export default function NavTab() {
               id="contact-tab-pane"
               role="tabpanel"
               aria-labelledby="contact-tab"
-              tabindex={'0'}
             >
               {foodsfilter.map((food, index) => {
                 return (

@@ -8,10 +8,9 @@ import { api } from '../../config/site.config';
  * @returns {JSX.Element}
  * @constructor
  */
-export default function Home() {
+export default function Home({handleClick}) {
   // states
   const [foods, setFoods] = useState();
-
   // init
   useEffect(() => {
     api
@@ -21,7 +20,6 @@ export default function Home() {
       })
       .catch((error) => console.log(error));
   }, []);
-
   //render
   return (
     <>
@@ -49,12 +47,9 @@ export default function Home() {
             return (
               <div className="col-3 mb-4" key={index}>
                 <CardProducto
-                  title={food.product_name}
-                  image={food.product_image}
-                  description={food.product_description}
-                  price={food.product_price}
+                  item={food}
+                  handleAddFood={() => {handleClick(food)}}
                   linkBuy="/"
-                  linkCar="/"
                   linkVer={'/food/' + food.id}
                 />
               </div>

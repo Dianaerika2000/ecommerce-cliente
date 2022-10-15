@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function CardHorizontal({ title, description, price, image, linkBuy, linkCar }) {
+export default function CardHorizontal({ title, description, price, image, linkBuy, linkCar}) {
   return (
     <div className="card mb-3" >
       <div className="row g-0">
@@ -18,9 +18,9 @@ export default function CardHorizontal({ title, description, price, image, linkB
               <Link to={linkBuy} className="btn btn-outline-success">
                 <i className="bi bi-whatsapp" /> Comprar
               </Link>
-              <Link to={linkCar} className="btn btn-outline-success">
+              <button to={linkCar} className="btn btn-outline-success">
                 <i className="bi bi-basket2" /> Agregar
-              </Link>
+              </button>
             </div>
           </div>
         </div>
