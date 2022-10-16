@@ -12,7 +12,7 @@ import AboutUsPage from './pages/AboutUsPage/AboutUsPage';
 import MenuPage from './pages/MenuPage/MenuPage';
 import { useEffect, useState } from 'react';
 import Cart from './components/Cart/Cart';
-import { storageGet, storageSave } from './services/storage';
+import { storageDelete, storageGet, storageSave } from './services/storage';
 import Footer from './components/Footer/Footer';
 
 /**
@@ -63,6 +63,17 @@ const App = () => {
     window.open(link);
   };
 
+  const handlerClickBuy = () => {
+    let items = storageGet('cart_list');
+    const message = items.map((item) => {
+      return item.quantity + " "+ item.product_name;
+    })
+    let link = 'https://wa.me/59171013332?text=' + encodeURIComponent(message.toString());
+    setCart([]);
+    storageDelete('cart_list');
+    window.open(link);
+  };
+
   // init
   useEffect(() => {
     let cart_list = storageGet('cart_list');
@@ -83,7 +94,7 @@ const App = () => {
       <NavBarMenu opciones={arNavBarOption} cart={cart} />
       <div className="App">
         <Routes>
-          <Route index element={<Home handleClick={handleAdd} />} />
+          <Route index element={<Home handleClick={handleAdd} handlerClickBuy={handlerClickBuy}/>} />
           <Route path="aboutus" element={<AboutUsPage />} />
           <Route path="food">
             <Route path=":foodId" element={<FoodPage handleAdd={handleAdd}/>} />
@@ -118,7 +129,7 @@ const App = () => {
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
                 Cerrar
               </button>
-              <button type="button" className="btn btn-success">
+              <button type="button" className="btn btn-success" onClick={handlerClickBuy}>
                 Comprar por whatsApp
               </button>
             </div>

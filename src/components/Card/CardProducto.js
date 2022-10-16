@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function CardProducto({ item, handleAddFood, linkBuy, linkVer }) {
+export default function CardProducto({ item, handleAddFood, handlerClickBuy, linkVer }) {
   const { product_name, product_price, product_image } = item;
   return (
     <div className="card shadow border-white">
@@ -13,9 +13,9 @@ export default function CardProducto({ item, handleAddFood, linkBuy, linkVer }) 
         </h5>
         <p className="card-text fs-5  texto-card">Precio: {product_price} Bs.</p>
         <div className="btn-group" role="group" aria-label="Basic example">
-          <Link to={linkBuy} className="btn btn-success">
+          <button className="btn btn-success" onClick={handlerClickBuy}>
             <i className="bi bi-whatsapp" /> Comprar
-          </Link>
+          </button>
           <button className="btn btn-success"
           onClick={() => handleAddFood(item)}>
             <i className="bi bi-basket2" /> Agregar

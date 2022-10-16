@@ -8,7 +8,7 @@ import { api } from '../../config/site.config';
  * @returns {JSX.Element}
  * @constructor
  */
-export default function Home({handleClick}) {
+export default function Home({handleClick, handlerClickBuy}) {
   // states
   const [foods, setFoods] = useState();
   // init
@@ -36,7 +36,7 @@ export default function Home({handleClick}) {
                 aria-label="Recipient's username"
                 aria-describedby="button-addon2"
               />
-              <button className="btn btn-outline-success" type="button" id="button-addon2">
+              <button className="btn btn-success" type="button" id="button-addon2">
                 <i className="bi bi-search"></i>
               </button>
             </div>
@@ -49,7 +49,7 @@ export default function Home({handleClick}) {
                 <CardProducto
                   item={food}
                   handleAddFood={() => {handleClick(food)}}
-                  linkBuy="/"
+                  handlerClickBuy={handlerClickBuy}
                   linkVer={'/food/' + food.id}
                 />
               </div>
