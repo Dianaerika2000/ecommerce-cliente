@@ -11,14 +11,35 @@ import { api } from '../../config/site.config';
 export default function Home({handleClick, handlerClickBuy}) {
   // states
   const [foods, setFoods] = useState();
+  const [foodOriginal, setFoodOriginal] = useState();
+  const [search, setSearch] = useState("");
+
+  // handlers
+  const loadFoods = () =>{
+    api
+    .get('https://training.melian.me/backend-ecommerce/api/products/57/getAll')
+    .then((response) => {
+      setFoods(response.data.products);
+      setFoodOriginal(response.data.products);
+    })
+    .catch((error) => console.log(error));
+  }
+  
+  const loadSearch = (wordSearch) => {
+    api.get('/products/57/search?s=' + wordSearch).then((response) => {
+      setFoods(response.data.products)
+    })
+  }
+  
+  const handleChange = (e) => {
+    setSearch(e.target.value);
+    // loadSearch(e.target.value)
+    e.target.value === "" ? setFoods([...foodOriginal]) : loadSearch(e.target.value);
+  }
+
   // init
   useEffect(() => {
-    api
-      .get('https://training.melian.me/backend-ecommerce/api/products/57/getAll')
-      .then((response) => {
-        setFoods(response.data.products);
-      })
-      .catch((error) => console.log(error));
+    loadFoods();
   }, []);
   //render
   return (
@@ -33,10 +54,10 @@ export default function Home({handleClick, handlerClickBuy}) {
                 type="text"
                 className="form-control"
                 placeholder="Búsqueda"
-                aria-label="Recipient's username"
-                aria-describedby="button-addon2"
+                value={search}
+                onChange={handleChange}
               />
-              <button className="btn btn-success" type="button" id="button-addon2">
+              <button className="btn btn-success">
                 <i className="bi bi-search"></i>
               </button>
             </div>
