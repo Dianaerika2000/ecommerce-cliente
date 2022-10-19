@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import CardHorizontal from '../../components/Card/CardHorizontal';
 import { api } from '../../config/site.config';
-export default function MenuPage({handleAdd, handleBuy}) {
+import CardHorizontal from '../Card/CardHorizontal';
+export default function NavTabCardHorizontal({handleAdd}) {
   // states
   const [categories, setCategories] = useState([]);
   const [productsByCategory, setProductsByCategory] = useState([]);
@@ -20,6 +20,7 @@ export default function MenuPage({handleAdd, handleBuy}) {
       .get('/categories/57/products/' + id)
       .then((response) => {
         setProductsByCategory(response.data.products);
+        console.log(response.data.products);
       })
       .catch((error) => console.log(error));
   };
@@ -36,10 +37,10 @@ export default function MenuPage({handleAdd, handleBuy}) {
 
   // render
   return (
-    <div className="container my-5">
+    <div className="container">
       <div className="row justify-content-center">
         <div className="col-8">
-         <h2 className="text-center mb-5">Nuestro Menu</h2>
+         <h2 className="text-center">Nuestro Menu</h2>
           <ul className="nav nav-tabs" id="myTab" role="tablist">
             <li className="nav-item" role="presentation">
               <button
@@ -71,13 +72,14 @@ export default function MenuPage({handleAdd, handleBuy}) {
                       loadProductsByCategory(category.id);
                     }}
                   >
+                    <span className="material-symbols-outlined">restaurant</span>&nbsp;
                     {category.category_name}
                   </button>
                 </li>
               );
             })}
           </ul>
-          <div className="tab-content my-3" id="myTabContent">
+          <div className="tab-content" id="myTabContent">
             <div
               className="tab-pane fade show active"
               id="foods-tab-pane"
@@ -87,11 +89,14 @@ export default function MenuPage({handleAdd, handleBuy}) {
               {foods.map((food, index) => {
                 return (
                   <CardHorizontal
+                    title={food.product_name}
+                    description={food.product_description}
+                    price={food.product_price}
+                    image={food.product_image}
+                    item={food}
+                    linkBuy={''}
+                    linkCar={''}
                     key={index}
-                    product={food}
-                    handleAdd={handleAdd}
-                    handleBuy={handleBuy}
-                    linkSee={'/food/' + food.id}
                   />
                 );
               })}
@@ -107,13 +112,37 @@ export default function MenuPage({handleAdd, handleBuy}) {
                 >
                   {productsByCategory.map((product, index) => {
                     return (
-                      <CardHorizontal
-                      key={index} 
-                      product={product}
-                      handleAdd={handleAdd}
-                      handleBuy={handleBuy}
-                      linkSee={'/food/' + product.id}
-                      />
+                      <div className="card mb-3" key={index}>
+                        <div className="row g-0">
+                          <div className="col-md-4">
+                            <img
+                              src={product.product_image}
+                              className="img-fluid rounded-start"
+                              alt={product.product_name}
+                            />
+                          </div>
+                          <div className="col-md-8">
+                            <div className="card-body">
+                              <h5 className="card-title">{product.product_name}</h5>
+                              <p className="card-text">{product.product_description}</p>
+                              <p className="card-text">
+                                <small className="text-muted">
+                                  Precio: {product.product_price}
+                                </small>
+                              </p>
+                              <div className="btn-group" role="group" aria-label="Basic example">
+                                <button className="btn btn-outline-success">
+                                  <i className="bi bi-whatsapp" /> Comprar
+                                </button>
+                                <button className="btn btn-outline-success"
+                                onClick={() => handleAdd(product)}>
+                                  <i className="bi bi-basket2" /> Agregar
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     );
                   })}
                 </div>
@@ -125,4 +154,3 @@ export default function MenuPage({handleAdd, handleBuy}) {
     </div>
   );
 }
-

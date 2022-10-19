@@ -13,12 +13,12 @@ export default function CardProducto({ item, handleAddFood, handlerClickBuy, lin
         </h5>
         <p className="card-text fs-5  texto-card">Precio: {product_price} Bs.</p>
         <div className="btn-group" role="group" aria-label="Basic example">
-          <button className="btn btn-success" onClick={handlerClickBuy}>
-            <i className="bi bi-whatsapp" /> Comprar
-          </button>
           <button className="btn btn-success"
           onClick={() => handleAddFood(item)}>
             <i className="bi bi-basket2" /> Agregar
+          </button>
+          <button className="btn btn-success" onClick={handlerClickBuy}>
+            <i className="bi bi-whatsapp" /> Comprar
           </button>
           <Link className="btn btn-success" to={linkVer}>
             <i className="bi bi-eye"/>

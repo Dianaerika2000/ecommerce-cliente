@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { api } from '../../config/site.config';
 
-export default function FoodPage({handleAdd}) {
+export default function FoodPage({ handleAdd, handleBuy}) {
   // states
   const [plato, setPlato] = useState({});
   // init
@@ -31,11 +31,11 @@ export default function FoodPage({handleAdd}) {
             <span className="fw-semibold">Precio:</span> {plato.product_price} Bs.
           </p>
           <div className="btn-group">
-            <Link to="" className="btn btn-outline-success" aria-current="page">
-              <i className="bi bi-whatsapp" /> Comprar
-            </Link>
             <button to="" className="btn btn-outline-success" aria-current="page" onClick={() => handleAdd(plato)}>
               <i className="bi bi-basket2" /> Agregar
+            </button>
+            <button className="btn btn-outline-success" aria-current="page" onClick={handleBuy}>
+              <i className="bi bi-whatsapp" /> Comprar
             </button>
           </div>
           <div className="mt-3">

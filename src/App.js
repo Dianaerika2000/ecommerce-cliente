@@ -97,9 +97,9 @@ const App = () => {
           <Route index element={<Home handleClick={handleAdd} handlerClickBuy={handlerClickBuy}/>} />
           <Route path="aboutus" element={<AboutUsPage />} />
           <Route path="food">
-            <Route path=":foodId" element={<FoodPage handleAdd={handleAdd}/>} />
+            <Route path=":foodId" element={<FoodPage handleAdd={handleAdd} handleBuy={handlerClickBuy}/>} />
           </Route>
-          <Route path="menu" element={<MenuPage />} />
+          <Route path="menu" element={<MenuPage handleAdd={handleAdd} handleBuy={handlerClickBuy}/>}/>
         </Routes>
       </div>
 
@@ -107,7 +107,7 @@ const App = () => {
       <div
         className="modal fade"
         id="cartModal"
-        tabindex={-1}
+        tabIndex={-1}
       >
         <div className="modal-dialog modal-dialog-scrollable modal-xl">
           <div className="modal-content">

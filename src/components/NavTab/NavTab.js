@@ -118,6 +118,7 @@ export default function NavTab() {
                     description={food.product_description}
                     price={food.product_price}
                     image={food.product_image}
+                    item={food}
                     linkBuy={''}
                     linkCar={''}
                     key={index}
@@ -138,6 +139,7 @@ export default function NavTab() {
                     description={food.product_description}
                     price={food.product_price}
                     image={food.product_image}
+                    item={food}
                     linkBuy={''}
                     linkCar={''}
                     key={index}
