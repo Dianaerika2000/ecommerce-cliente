@@ -12,15 +12,12 @@ export default function Cart({ cart, setCart, handleAdd, handleSubtract }) {
     storageSave('cart_list', arr);
   };
   
-  const handleTotal = () => {
+  // init
+  useEffect(() => {
     let total = 0;
     cart.map((item) => (total += item.quantity * parseInt(item.product_price)));
     setTotal(total);
-  };
-  // init
-  useEffect(() => {
-    handleTotal();
-  }, [handleTotal]);
+  }, [cart]);
 
   // render
   return (
