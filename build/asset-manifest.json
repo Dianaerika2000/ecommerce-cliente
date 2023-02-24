@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/ecommerce-cliente/build/static/css/main.54776b91.css",
+    "main.js": "/ecommerce-cliente/build/static/js/main.17790aa6.js",
+    "static/js/787.00cbd180.chunk.js": "/ecommerce-cliente/build/static/js/787.00cbd180.chunk.js",
+    "static/media/slide1.png": "/ecommerce-cliente/build/static/media/slide1.b6449e145f208b44d720.png",
+    "static/media/slide2.png": "/ecommerce-cliente/build/static/media/slide2.4c0fa5beb6011d42179c.png",
+    "static/media/slide3.png": "/ecommerce-cliente/build/static/media/slide3.b4ff11c4ab5a2a05d68a.png",
+    "static/media/bootstrap-icons.woff?": "/ecommerce-cliente/build/static/media/bootstrap-icons.e559bf06bc84fd9525e6.woff",
+    "static/media/historia-restaurante.jpg": "/ecommerce-cliente/build/static/media/historia-restaurante.15140eec22248deea180.jpg",
+    "static/media/bootstrap-icons.woff2?": "/ecommerce-cliente/build/static/media/bootstrap-icons.ea98e12d2d58747f9fc5.woff2",
+    "index.html": "/ecommerce-cliente/build/index.html",
+    "main.54776b91.css.map": "/ecommerce-cliente/build/static/css/main.54776b91.css.map",
+    "main.17790aa6.js.map": "/ecommerce-cliente/build/static/js/main.17790aa6.js.map",
+    "787.00cbd180.chunk.js.map": "/ecommerce-cliente/build/static/js/787.00cbd180.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54776b91.css",
+    "static/js/main.17790aa6.js"
+  ]
+}
